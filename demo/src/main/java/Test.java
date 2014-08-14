@@ -1,3 +1,4 @@
+import com.linychuo.metrofx.control.button.Button;
 import com.linychuo.metrofx.control.button.Tiles;
 
 import javafx.application.Application;
@@ -35,7 +36,9 @@ public class Test extends Application {
         System.out.println("ddd");
       }
     });
-    tilePane.getChildren().addAll(button1);
+
+    Button b = new Button("你好");
+    tilePane.getChildren().addAll(button1, b);
 
     Scene scene = new Scene(tilePane);
     primaryStage.setScene(scene);
