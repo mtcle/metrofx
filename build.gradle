@@ -1,15 +1,25 @@
 allprojects {
     apply plugin: 'idea'
-    group = 'com.linychuo.metroui'
+    group = 'com.linychuo'
     version = '1.0'
 }
 
 subprojects {
     apply plugin: 'java'
-}
+    def javaHome = "/home/ivan/soft/jdk1.8.0_11"
 
-project(':demo') {
-    dependencies {
-        compile project(':core')
+    compileJava {
+        options.fork = true
+        options.forkOptions.executable = "$javaHome/bin/javac"
+        classpath += files("$javaHome/jre/lib/ext/jfxrt.jar")
     }
 }
+
+idea {
+    project {
+        jdkName = '1.8'
+        languageLevel = '1.8'
+    }
+}
+
+

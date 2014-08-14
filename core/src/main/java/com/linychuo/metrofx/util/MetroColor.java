@@ -1,4 +1,4 @@
-package util;
+package com.linychuo.metrofx.util;
 
 import java.util.Random;
 

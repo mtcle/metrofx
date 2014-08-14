@@ -1,5 +1,7 @@
-package control;
+package com.linychuo.metrofx.control;
 
+
+import com.linychuo.metrofx.util.MetroColor;
 
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -13,7 +15,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
-import util.MetroColor;
 
 /**
  * Created by ivan on 14-8-13.
@@ -26,7 +27,7 @@ public class MetroButton extends StackPane {
 
 
   private MetroButton(String showText, double fontSize, Image image, int width, int height,
-                      String webColorVal) {
+                      final String webColorVal) {
 
     setPadding(new Insets(2));
     setStyle("-fx-background-color:" + webColorVal);
@@ -56,15 +57,20 @@ public class MetroButton extends StackPane {
       ImageView imgView = new ImageView(image);
       getChildren().add(imgView);
     }
-
-    setOnMouseEntered(e -> {
-      setStyle("-fx-background-color:#CCC;");
-      setCursor(Cursor.HAND);
+    setOnMouseEntered(new EventHandler<MouseEvent>() {
+      @Override
+      public void handle(MouseEvent event) {
+        setStyle("-fx-background-color:#CCC;");
+        setCursor(Cursor.HAND);
+      }
     });
-    setOnMouseExited(e -> {
-      setStyle("-fx-background-color:" + webColorVal);
-    });
 
+    setOnMouseExited(new EventHandler<MouseEvent>() {
+      @Override
+      public void handle(MouseEvent event) {
+        setStyle("-fx-background-color:" + webColorVal);
+      }
+    });
   }
 
   public void setOnClick(EventHandler<? super MouseEvent> value) {

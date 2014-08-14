@@ -1,7 +1,10 @@
-import control.MetroButton;
+import com.linychuo.metrofx.control.MetroButton;
+
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 
@@ -26,10 +29,12 @@ public class Test extends Application {
         button1 =
         new MetroButton.Builder().text("登录").size(100, 40).bgColor("#16499a")
             .build();
-    button1.setOnClick(e -> {
-      System.out.println("ddd");
+    button1.setOnClick(new EventHandler<MouseEvent>() {
+      @Override
+      public void handle(MouseEvent event) {
+        System.out.println("ddd");
+      }
     });
-
     tilePane.getChildren().addAll(button1);
 
     Scene scene = new Scene(tilePane);
