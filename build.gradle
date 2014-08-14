@@ -1,0 +1,15 @@
+allprojects {
+    apply plugin: 'idea'
+    group = 'com.linychuo.metroui'
+    version = '1.0'
+}
+
+subprojects {
+    apply plugin: 'java'
+}
+
+project(':demo') {
+    dependencies {
+        compile project(':core')
+    }
+}
