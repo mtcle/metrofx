@@ -3,6 +3,7 @@ apply plugin: 'maven-publish'
 publishing {
     publications {
         mavenJava(MavenPublication) {
+            artifactId 'metrofx'
             from components.java
         }
     }

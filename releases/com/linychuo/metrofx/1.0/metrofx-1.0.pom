@@ -3,6 +3,6 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.linychuo</groupId>
-  <artifactId>core</artifactId>
+  <artifactId>metrofx</artifactId>
   <version>1.0</version>
 </project>
