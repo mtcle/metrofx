@@ -1,4 +1,4 @@
-import com.linychuo.metrofx.control.MetroButton;
+import com.linychuo.metrofx.control.button.Tiles;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -25,9 +25,9 @@ public class Test extends Application {
     tilePane.setPadding(new Insets(10));
     tilePane.setPrefColumns(2);
 
-    MetroButton
+    Tiles
         button1 =
-        new MetroButton.Builder().text("登录").size(100, 40).bgColor("#16499a")
+        new Tiles.Builder().text("登录").size(100, 40).bgColor("#16499a")
             .build();
     button1.setOnClick(new EventHandler<MouseEvent>() {
       @Override

@@ -1,7 +1,7 @@
-package com.linychuo.metrofx.control;
+package com.linychuo.metrofx.control.button;
 
 
-import com.linychuo.metrofx.util.MetroColor;
+import com.linychuo.metrofx.util.SafeColor;
 
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -12,22 +12,21 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 
 /**
  * Created by ivan on 14-8-13.
  */
-public class MetroButton extends StackPane {
+public class Tiles extends StackPane {
 
   private static final String
       FONT_FAMILY =
       "'Segoe UI Light_', 'Open Sans Light', Verdana, Arial, Helvetica, sans-serif";
 
 
-  private MetroButton(String showText, double fontSize, Image image, int width, int height,
-                      final String webColorVal) {
+  private Tiles(String showText, double fontSize, Image image, int width, int height,
+                final String webColorVal) {
 
     setPadding(new Insets(2));
     setStyle("-fx-background-color:" + webColorVal);
@@ -37,14 +36,14 @@ public class MetroButton extends StackPane {
     setAlignment(Pos.CENTER);
 
     Rectangle bg = new Rectangle(width - 2, height - 2);
-    bg.setFill(Color.web(webColorVal));
+    bg.setFill(javafx.scene.paint.Color.web(webColorVal));
     getChildren().add(bg);
 
     if (showText != null) {
       Label label = new Label(showText);
       label.setPadding(new Insets(2));
       label.setWrapText(true);
-      label.setTextFill(Color.WHITE);
+      label.setTextFill(javafx.scene.paint.Color.WHITE);
       label.setFont(Font.font(FONT_FAMILY, fontSize));
       getChildren().add(label);
       if (image != null) {
@@ -86,11 +85,11 @@ public class MetroButton extends StackPane {
     private String webColorVal;
     private double fontSize = 14;
 
-    public MetroButton build() {
+    public Tiles build() {
       if (webColorVal == null) {
-        webColorVal = MetroColor.color();
+        webColorVal = SafeColor.color();
       }
-      return new MetroButton(showText, fontSize, image, width, height, webColorVal);
+      return new Tiles(showText, fontSize, image, width, height, webColorVal);
     }
 
     public Builder text(String showText) {

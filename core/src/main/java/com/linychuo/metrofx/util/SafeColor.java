@@ -5,11 +5,11 @@ import java.util.Random;
 /**
  * Created by ivan on 14-8-14.
  */
-public class MetroColor {
+public class SafeColor {
 
   private static final Random rand = new Random();
 
-  private MetroColor() {
+  private SafeColor() {
 
   }
 
