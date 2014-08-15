@@ -30,9 +30,10 @@ public class Window implements MetroConfig {
     this.primaryStage = primaryStage;
 
     VBox mainBody = new VBox();
-    mainBody.setSpacing(0);
-    mainBody.setStyle("-fx-background-color:#6badf6");
+    mainBody.getStyleClass().add("metro-window");
+
     Scene scene = new Scene(mainBody, width, height);
+    scene.getStylesheets().add(getClass().getResource("metro.css").toExternalForm());
     primaryStage.initStyle(StageStyle.UNDECORATED);
     primaryStage.setScene(scene);
     primaryStage.setTitle(title);
@@ -68,8 +69,7 @@ public class Window implements MetroConfig {
     Button closeBtn = new Button("X");
     closeBtn.setPrefSize(48, 24);
     closeBtn.setMinHeight(24);
-    closeBtn.setTextFill(Color.WHITE);
-    closeBtn.setStyle(";-fx-background-color:#c75050;-fx-background-radius: 0;-fx-cursor:hand");
+    closeBtn.getStyleClass().add("error");
     AnchorPane.setRightAnchor(closeBtn, MARGIN);
     closeBtn.setOnAction(new EventHandler<ActionEvent>() {
       @Override

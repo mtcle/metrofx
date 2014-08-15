@@ -1,7 +1,7 @@
 package com.linychuo.metrofx.control.dialog;
 
 import com.linychuo.metrofx.control.MetroConfig;
-import com.linychuo.metrofx.control.button.MetroButton;
+import com.linychuo.metrofx.control.Window;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -31,6 +31,7 @@ public class AlertDialog implements MetroConfig {
     stage.initModality(Modality.APPLICATION_MODAL);
 
     VBox vBox = new VBox();
+    vBox.getStyleClass().add("metro-window");
     vBox.setSpacing(0);
     vBox.setStyle("-fx-background-color:#6badf6");
 
@@ -45,8 +46,7 @@ public class AlertDialog implements MetroConfig {
     Button closeBtn = new Button("X");
     closeBtn.setPrefSize(48, 24);
     closeBtn.setMinHeight(24);
-    closeBtn.setTextFill(Color.WHITE);
-    closeBtn.setStyle(";-fx-background-color:#c75050;-fx-background-radius: 0;-fx-cursor:hand");
+    closeBtn.getStyleClass().add("error");
     AnchorPane.setRightAnchor(closeBtn, MARGIN);
     closeBtn.setOnAction(new EventHandler<ActionEvent>() {
       @Override
@@ -67,7 +67,7 @@ public class AlertDialog implements MetroConfig {
     AnchorPane.setTopAnchor(msgTxt, 20.0);
     msgPane.getChildren().add(msgTxt);
 
-    MetroButton closeBtnAgain = new MetroButton("确定");
+    Button closeBtnAgain = new Button("确定");
     closeBtnAgain.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent event) {
@@ -83,6 +83,7 @@ public class AlertDialog implements MetroConfig {
 
     vBox.getChildren().addAll(caption, content);
     Scene scene = new Scene(vBox, width, height);
+    scene.getStylesheets().add(Window.class.getResource("metro.css").toExternalForm());
 
     stage.setScene(scene);
     stage.setTitle(title);

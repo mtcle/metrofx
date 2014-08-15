@@ -1,9 +1,0 @@
-.button{
-    -fx-text-fill:#fff;
-    -fx-background-radius: 0;
-    -fx-pref-width:80;
-}
-
-.button:hover{
-    -fx-cursor: hand;
-}
