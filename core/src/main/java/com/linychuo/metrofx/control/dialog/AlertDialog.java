@@ -1,12 +1,13 @@
 package com.linychuo.metrofx.control.dialog;
 
-import com.linychuo.metrofx.control.button.Button;
 import com.linychuo.metrofx.control.MetroConfig;
+import com.linychuo.metrofx.control.button.MetroButton;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -41,9 +42,11 @@ public class AlertDialog implements MetroConfig {
     AnchorPane.setLeftAnchor(captionTitle, MARGIN);
     caption.getChildren().addAll(captionTitle);
 
-    javafx.scene.control.Button closeBtn = new javafx.scene.control.Button("X");
-    closeBtn.setStyle(
-        "-fx-text-fill:#fff; -fx-background-radius: 0; -fx-pref-width:48;-fx-pref-height:24;-fx-min-height:24; -fx-background-color:#c75050;");
+    Button closeBtn = new Button("X");
+    closeBtn.setPrefSize(48, 24);
+    closeBtn.setMinHeight(24);
+    closeBtn.setTextFill(Color.WHITE);
+    closeBtn.setStyle(";-fx-background-color:#c75050;-fx-background-radius: 0;-fx-cursor:hand");
     AnchorPane.setRightAnchor(closeBtn, MARGIN);
     closeBtn.setOnAction(new EventHandler<ActionEvent>() {
       @Override
@@ -64,7 +67,7 @@ public class AlertDialog implements MetroConfig {
     AnchorPane.setTopAnchor(msgTxt, 20.0);
     msgPane.getChildren().add(msgTxt);
 
-    Button closeBtnAgain = new Button("确定");
+    MetroButton closeBtnAgain = new MetroButton("确定");
     closeBtnAgain.setOnAction(new EventHandler<ActionEvent>() {
       @Override
       public void handle(ActionEvent event) {

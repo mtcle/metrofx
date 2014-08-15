@@ -66,8 +66,10 @@ public class Window implements MetroConfig {
     caption.getChildren().addAll(captionTitle);
 
     Button closeBtn = new Button("X");
-    closeBtn.setStyle(
-        "-fx-text-fill:#fff; -fx-background-radius: 0; -fx-pref-width:48;-fx-pref-height:24;-fx-min-height:24; -fx-background-color:#c75050;-fx-cursor:hand;");
+    closeBtn.setPrefSize(48, 24);
+    closeBtn.setMinHeight(24);
+    closeBtn.setTextFill(Color.WHITE);
+    closeBtn.setStyle(";-fx-background-color:#c75050;-fx-background-radius: 0;-fx-cursor:hand");
     AnchorPane.setRightAnchor(closeBtn, MARGIN);
     closeBtn.setOnAction(new EventHandler<ActionEvent>() {
       @Override
@@ -96,6 +98,7 @@ public class Window implements MetroConfig {
       content.getChildren().remove(1);
     }
     content.getChildren().add(form.build());
+    show();
   }
 
   public void show() {
